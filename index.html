@@ -79,33 +79,31 @@ section{padding:5rem 2rem;}
 .gallery-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  grid-template-rows: repeat(2, 260px);
+  gap: 6px;
   max-width: 1600px;
   margin: 0 auto;
 }
 
+/* images propres sans déformation ni crop */
 .gallery-grid img{
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  background: var(--brun);
   display: block;
   cursor: pointer;
-  object-fit: cover;
-  transition: transform 0.2s, opacity 0.25s;
+  transition: transform 0.2s, opacity 0.2s;
 }
 
 .gallery-grid img:hover{
   opacity: 0.85;
-  transform: scale(1.01);
+  transform: scale(1.02);
 }
 
+/* image large optionnelle */
 .gallery-grid .wide{
   grid-column: span 2;
-}
-
-.gallery-grid .full-width{
-  grid-column: 1 / -1;
-  max-height: 500px;
-  object-fit: contain;
 }
 
 /* MODAL LIGHTBOX */
