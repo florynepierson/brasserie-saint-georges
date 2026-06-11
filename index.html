@@ -79,28 +79,27 @@ section{padding:5rem 2rem;}
 .gallery-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  max-width: 1600px;
-  margin: 0 auto;
+  gap: 0;
 }
 
-/* bloc image stable */
+/* images homogènes */
 .gallery-grid img{
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-  background: var(--brun);
   display: block;
   cursor: pointer;
-  transition: transform 0.2s, opacity 0.2s;
+
+  /* IMPORTANT : supprime les “trous visuels” */
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
 
+/* effet hover léger */
 .gallery-grid img:hover{
-  transform: scale(1.02);
-  opacity: 0.85;
+  transform: scale(1.01);
+  transition: 0.2s;
 }
 
-/* option image large */
+/* image large */
 .gallery-grid .wide{
   grid-column: span 2;
   aspect-ratio: 8 / 3;
