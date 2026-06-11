@@ -71,16 +71,42 @@ section{padding:5rem 2rem;}
 .pillar h4{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--rouge);margin-bottom:0.3rem;font-weight:700;}
 .pillar p{font-size:0.9rem;color:var(--gris);}
 
-/* GALERIE — images plus petites en affichage, clic pour modal */
-.gallery-wrap{background:var(--brun);padding:4px;}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:1600px;margin:0 auto;}
-.gallery-grid img{
-  width:100%;height:auto;display:block;
-  cursor:pointer;transition:opacity 0.25s,transform 0.2s;
-  max-height:340px;object-fit:contain;background:var(--brun);
+.gallery-wrap{
+  background: var(--brun);
+  padding: 4px;
 }
-.gallery-grid img:hover{opacity:0.82;transform:scale(1.01);}
-.gallery-grid .wide{grid-column:span 2;}
+
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.gallery-grid img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.2s, opacity 0.25s;
+}
+
+.gallery-grid img:hover{
+  opacity: 0.85;
+  transform: scale(1.01);
+}
+
+.gallery-grid .wide{
+  grid-column: span 2;
+}
+
+.gallery-grid .full-width{
+  grid-column: 1 / -1;
+  max-height: 500px;
+  object-fit: contain;
+}
 
 /* MODAL LIGHTBOX */
 .modal-overlay{
@@ -312,12 +338,44 @@ footer{background:var(--rouge-fonce);color:rgba(255,255,255,0.55);text-align:cen
 <!-- GALERIE avec modal lightbox -->
 <div class="gallery-wrap">
   <div class="gallery-grid">
-    <img src="images/facade.jpg" alt="Façade de la Brasserie Saint-Georges, rue Saint-Georges à Nancy" data-index="0" data-caption="Façade de la Brasserie Saint-Georges, rue Saint-Georges à Nancy" onclick="openModal(0)" class="wide">
-    <img src="images/aquarelle.jpg" alt="Illustration aquarelle de la terrasse BSG" data-index="1" data-caption="Illustration aquarelle de la terrasse BSG" onclick="openModal(1)">
-    <img src="images/terrasse.jpg" alt="Vue depuis la terrasse — Cathédrale Saint-Épvre" data-index="2" data-caption="Vue depuis la terrasse — Cathédrale Saint-Épvre" onclick="openModal(2)">
-    <img src="images/bar-noel.jpg" alt="Le bar de la BSG en période de fêtes" data-index="3" data-caption="Le bar de la BSG en période de fêtes" onclick="openModal(3)">
-    <img src="images/bar-vue.jpg" alt="Vue d'ensemble du bar et de la salle" data-index="4" data-caption="Vue d'ensemble du bar et de la salle" onclick="openModal(4)">
-    <img src="images/cour.jpg" alt="La cour intérieure — idéale en été" data-index="5" data-caption="La cour intérieure — idéale en été" onclick="openModal(5)">
+
+    <img src="images/facade.jpg"
+         alt="Façade de la Brasserie Saint-Georges"
+         data-index="0"
+         onclick="openModal(0)"
+         class="wide">
+
+    <img src="images/aquarelle.jpg"
+         alt="Illustration aquarelle de la terrasse"
+         data-index="1"
+         onclick="openModal(1)">
+
+    <img src="images/terrasse.jpg"
+         alt="Vue depuis la terrasse"
+         data-index="2"
+         onclick="openModal(2)">
+
+    <img src="images/bar-noel.jpg"
+         alt="Bar en période de fêtes"
+         data-index="3"
+         onclick="openModal(3)">
+
+    <img src="images/bar-vue.jpg"
+         alt="Vue du bar et de la salle"
+         data-index="4"
+         onclick="openModal(4)">
+
+    <img src="images/cour.jpg"
+         alt="Cour intérieure"
+         data-index="5"
+         onclick="openModal(5)">
+
+    <img src="images/menu-bieres.jpg"
+         alt="Menu bières et cocktails"
+         data-index="6"
+         onclick="openModal(6)"
+         class="full-width">
+
   </div>
 </div>
 
@@ -405,7 +463,6 @@ footer{background:var(--rouge-fonce);color:rgba(255,255,255,0.55);text-align:cen
         <div class="biere-item"><div><span class="biere-name">La Timut</span><span class="biere-style">Ale · Clémery</span><span class="biere-deg">4°</span></div><span class="biere-prix">4,50 € / 8,50 €</span></div>
         <div class="biere-item"><div><span class="biere-name">Grômpy Cat</span><span class="biere-style">Lager · Grô</span><span class="biere-deg">4,5°</span></div><span class="biere-prix">4 € / 7,50 €</span></div>
       </div>
-      <img src="images/menu-bieres.jpg" alt="Ardoise bières et cocktails" class="tab-img-full">
     </div>
 
     <div class="tab-panel" id="tab-cocktails">
