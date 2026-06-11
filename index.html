@@ -73,22 +73,21 @@ section{padding:5rem 2rem;}
 
 .gallery-wrap{
   background: var(--brun);
-  padding: 4px;
+  padding: 6px;
 }
 
 .gallery-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 260px);
   gap: 6px;
   max-width: 1600px;
   margin: 0 auto;
 }
 
-/* images propres sans déformation ni crop */
+/* bloc image stable */
 .gallery-grid img{
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: contain;
   background: var(--brun);
   display: block;
@@ -97,13 +96,14 @@ section{padding:5rem 2rem;}
 }
 
 .gallery-grid img:hover{
-  opacity: 0.85;
   transform: scale(1.02);
+  opacity: 0.85;
 }
 
-/* image large optionnelle */
+/* option image large */
 .gallery-grid .wide{
   grid-column: span 2;
+  aspect-ratio: 8 / 3;
 }
 
 /* MODAL LIGHTBOX */
